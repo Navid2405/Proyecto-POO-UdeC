@@ -1,0 +1,23 @@
+@startuml
+
+
+actor "BuscaNino" as bn
+rectangle "Administracion buscadores"{
+
+
+usecase "Registrarse" as uc1
+usecase "Listar" as uc2
+usecase "AsignarBuscador" as uc3
+
+bn --> uc1
+bn --> uc2
+bn --> uc3
+
+
+
+
+
+
+}
+
+@enduml

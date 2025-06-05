@@ -1,0 +1,15 @@
+@startuml
+
+actor platos as P
+rectangle "Administracion de platos" {
+
+    usecase "aggPlato" as UC1
+    usecase "aggIngredoentes" as UC2
+    usecase "Listar" as UC3
+
+    P --> UC1
+    P --> UC2
+    P --> UC3
+
+}
+@enduml

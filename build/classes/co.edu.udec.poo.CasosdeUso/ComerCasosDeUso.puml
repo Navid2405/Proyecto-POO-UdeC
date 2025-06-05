@@ -1,0 +1,20 @@
+@startuml
+
+actor "comer" as c
+
+rectangle "manejo de comidas"{
+
+
+    usecase "registrarComida" as UC1
+    usecase "ListarComidas" as Uc2
+    usecase "contarComidas" as UC3
+
+
+    c --> UC1
+    c --> Uc2
+    c --> UC3
+
+
+}
+
+@enduml

@@ -4,38 +4,69 @@
  */
 package co.edu.udec.poo.ComedorInfantil.modeloentidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Navid Lobato
  */
-public class Platos {
+@Entity
+public class Platos implements Serializable {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
     private String Nombre;
-    private List<String> Ingredientes;
+    private String Ingredientes;
+    
+    //relaciones 
+    @ManyToOne
+    @JoinColumn(name = "nombre_menu")
+    private Menu menu;
+    
     
     //METODOS
-    public Platos(String Nombre, List<String> Ingredientes){
+
+    public Platos() {
+    }
+    
+    
+    
+    public Platos(String Nombre, String Ingredientes){
             this.Nombre=Nombre;
-            this.Ingredientes= new ArrayList<>();
+            //this.Ingredientes= new ArrayList<>();
             this.Ingredientes= Ingredientes;
         
     }
     
     
     
-    public void aggIngrediente(String Ingrediente){
+    /*public void aggIngrediente(String Ingrediente){
         Ingredientes.add(Ingrediente);
         
-    }
+    }*/
+    
     //GET
     public String getNombre(){
         return Nombre;
     }
     
-    public List<String> getIngredientes(){
+    public String getIngredientes(){
         return Ingredientes;
+    }
+      public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     //SET
@@ -43,7 +74,7 @@ public class Platos {
         this.Nombre=Nombre;
         
     }
-    public void setIngredientes(List<String> Ingredientes){
+    public void setIngredientes(String Ingredientes){
         this.Ingredientes=Ingredientes;
     }
     

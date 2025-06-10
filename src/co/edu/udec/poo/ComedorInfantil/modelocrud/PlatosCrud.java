@@ -26,7 +26,7 @@ public class PlatosCrud {
     public void aggIngrediente(String nombrePlato, String ingrediente) throws Exception{
         Platos plato = platos.get(nombrePlato);
         if (plato!=null) {
-            plato.aggIngrediente(ingrediente);
+            //plato.aggIngrediente(ingrediente);
             System.out.println("Ingrediente agregado a " + nombrePlato);
         } else {
             throw new Exception("No se encontro el plato para registrar ingredientes");

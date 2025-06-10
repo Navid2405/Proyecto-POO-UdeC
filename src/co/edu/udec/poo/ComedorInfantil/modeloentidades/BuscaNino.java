@@ -4,36 +4,55 @@
  */
 package co.edu.udec.poo.ComedorInfantil.modeloentidades;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Navid Lobato
  */
-public class BuscaNino {
+@Entity(name="Buscadores")
+public class BuscaNino implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
     private String Dni;
     private String Nombre;
     private String Direccion;
     private String Telefono;
     private String Relacion;
-    private List<Ninos> Busca;
+    
+    //relaciones
+    @ManyToOne
+     @JoinColumns({
+    @JoinColumn(name = "nino_identificacion", referencedColumnName = "Identificacion"),
+    @JoinColumn(name = "nino_matricula", referencedColumnName = "matricula")
+})
+    private Ninos nino_buscadores;
+   
 
     //METODOS
-    public BuscaNino(String Dni,String Nombre,String Direccion,String Telefono,String Relacion){
+    
+    
+    public BuscaNino(){
+    }
+
+    public BuscaNino(String Dni, String Nombre, String Direccion, String Telefono, String Relacion) {
         this.Direccion=Direccion;
         this.Dni=Dni;
         this.Nombre=Nombre;
         this.Relacion=Relacion;
         this.Telefono=Telefono;
     }
-    public List<Ninos> Listar(Ninos Niños){
-        
-        return Busca;
-    }
-    public void Recogen(){
-        
-    }
-
+  
 
     //GETTERS
     public String getDni() {
@@ -56,9 +75,7 @@ public class BuscaNino {
         return Relacion;
     }
 
-    public List<Ninos> getBusca() {
-        return Busca;
-    }
+    
     
     //SETTERS
     
@@ -74,6 +91,14 @@ public class BuscaNino {
     @Override
     public String toString() {
         return "Nombre:" + this.Nombre + " Dni" + this.Dni + " Telefono:" +this.Telefono + " Relacion:" + this.Relacion + "  Direccion:" +this.Direccion;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
  
 }

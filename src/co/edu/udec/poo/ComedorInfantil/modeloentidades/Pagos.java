@@ -4,16 +4,27 @@
  */
 package co.edu.udec.poo.ComedorInfantil.modeloentidades;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Navid Lobato
  */
-public class Pagos {
-    
-    private String Id;
+@Entity(name="Pagos")
+public class Pagos implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int Id;
     private Date Fecha;
     private double CostoTotal;
     private double CostoFijo;
@@ -21,10 +32,27 @@ public class Pagos {
     private String identificacion;
     private String DniPagador;
     private List<Pagos> ListaPagos;
+    
+    //relaciones
+    @ManyToOne
+     @JoinColumns({
+    @JoinColumn(name = "nino_identificacion", referencedColumnName = "Identificacion"),
+    @JoinColumn(name = "nino_matricula", referencedColumnName = "matricula")
+})
+    private Ninos nino_pago;
+    @ManyToOne
+    @JoinColumn (name= "Identificacion_pagador")
+    private Pagador pagador;
 
     //METODOS
-    public Pagos(String Id, Date Fecha,double CostoComida, String identificacion, String DniPagador) {
-        this.Id = Id;
+
+    public Pagos() {
+    }
+    
+    
+    
+    
+    public Pagos( Date Fecha,double CostoComida, String identificacion, String DniPagador) {
         this.Fecha = Fecha;
         this.identificacion = identificacion;
         this.DniPagador = DniPagador;
@@ -47,7 +75,7 @@ public class Pagos {
     }
     
     
-     public String getId() {
+     public int getId() {
         return Id;
     }
 

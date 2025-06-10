@@ -35,7 +35,7 @@ public class PagosCrud {
     }
      public void registrarPago(Pagos pago){
      
-         generarPagos.put(pago.getId(), pago);
+         generarPagos.put(pago.getDniPagador(), pago);
      }
      
      public void generarPago(Pagos pago) throws Exception{
@@ -63,7 +63,7 @@ public class PagosCrud {
                  throw new Exception ("Este pagador no le corresponde a este Niño");
              }
          }
-         generarPagos.put(pago.getId(), pago);
+         generarPagos.put(pago.getIdentificacion(), pago);
      }
     
      

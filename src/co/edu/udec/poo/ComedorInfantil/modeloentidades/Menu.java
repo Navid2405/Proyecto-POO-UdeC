@@ -4,22 +4,39 @@
  */
 package co.edu.udec.poo.ComedorInfantil.modeloentidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author Navid Lobato
  */
-public class Menu {
+@Entity(name = "Menus")
+public class Menu implements Serializable {
     
-    
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int id;
     private String NumMenu;
     private String Nombre;
+    
+    @OneToMany(mappedBy= "menu")
     private List<Platos> platos;
     
+    
     //Constructor
+
+    public Menu() {
+    }
+    
+    
     public Menu(String Nombre, String NumMenu){
         this.Nombre=Nombre;
         this.NumMenu=NumMenu;
@@ -51,6 +68,14 @@ public class Menu {
 
     public void setNombre(String Nombre) {
         this.Nombre=Nombre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
        
 }   

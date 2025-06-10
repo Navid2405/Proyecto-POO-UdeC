@@ -4,14 +4,25 @@
  */
 package co.edu.udec.poo.ComedorInfantil.modeloentidades;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Navid Lobato
  */
-public class Pagador {
+@Entity(name="Pagadores")
+
+public class Pagador implements Serializable {
+    @Id
     private String Dni;
     private String Nombre;
     private String Direccion;
@@ -19,7 +30,21 @@ public class Pagador {
     private String NumeroCuenta;
     private List<Pagador> Pagador;
     
+    @ManyToOne
+    @JoinColumns({
+    @JoinColumn(name = "nino_identificacion", referencedColumnName = "Identificacion"),
+    @JoinColumn(name = "nino_matricula", referencedColumnName = "matricula")
+})
+    private Ninos nino_pagadores;
+   
+    
     //METODOS
+
+    public Pagador() {
+    }
+    
+    
+    
     public Pagador(String Dni, String Nombre, String Direccion, String Telefono, String NumeroCuenta){
         this.Direccion=Direccion;
         this.Nombre=Nombre;

@@ -4,6 +4,7 @@
  */
 package co.edu.udec.poo.ComedorInfantil.modelocrud;
 
+import co.edu.udec.poo.ComedorInfantil.Infraestructura.Configuracion.Bd.ConexionBd;
 import co.edu.udec.poo.ComedorInfantil.modeloentidades.Ninos;
 import co.edu.udec.poo.ComedorInfantil.modeloentidades.Pagador;
 import co.edu.udec.poo.ComedorInfantil.modeloentidades.Pagos;
@@ -14,6 +15,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 /**
  *
@@ -27,6 +31,7 @@ public class NinosCrud{
     HashMap<String, List<BuscaNino>> buscaNino;
     List<String> Alergias;
     public static List<Ninos> Retirados; 
+    private EntityManagerFactory conexion;
     
     
     public NinosCrud(){
@@ -36,33 +41,57 @@ public class NinosCrud{
         buscaNino = new HashMap<>();
         Alergias = new ArrayList<>();
         Retirados = new ArrayList<>();
+        conexion= ConexionBd.conectar();
     }
     
     
     
     public  void Agregar(Ninos nino)throws Exception{
-        if(ninos.containsKey(nino.getIdentificacion())){
-              throw new Exception ("El niño con la identificacion:" + nino.getIdentificacion()+ "ya se encuentra registrado");
-            
-        } 
         
-            ninos.put(nino.getIdentificacion(), nino);
-          
-        
-          
-       
+        EntityTransaction transaction= null;
+        EntityManager entityManager= null;
+      try{
+           entityManager  = conexion.createEntityManager();
+           transaction = entityManager.getTransaction();
+           transaction.begin();
+           entityManager.persist(nino);
+           transaction.commit();
+      }catch(Exception err){
+          if(transaction != null){
+              transaction.rollback();
+          }
+          String msj= "Error al guardar al niño con identificacion:" + nino.getIdentificacion() ;
+          throw new Exception(msj); 
+      }finally{
+          if(entityManager != null && entityManager.isOpen()){
+              entityManager.close();
+              
+          }
+      }
     }
     
+    
     public Ninos Buscar (String Identificacion)throws Exception{
-        
-        if(!ninos.containsKey(Identificacion)){
-            throw new Exception ("No se enocntro el usuario con la identificacion:" + Identificacion);           
+        EntityManager entityManager= null;
+        try {
+              entityManager  = conexion.createEntityManager();
+              Ninos nino= entityManager.find(Ninos.class, Identificacion);
+              if(nino == null){
+                String msj= "Error Nino:" +Identificacion + "no existe.";
+                throw new Exception(msj);
+              }
+              return nino; 
+        } catch (Exception e) {
+            throw e;
+            
+        } finally {
+              if(entityManager != null && entityManager.isOpen()){
+              entityManager.close();
         }
-       
-        Ninos niño= ninos.get(Identificacion);
-        
-        return niño; 
     }
+    }
+        
+    
     
     
     public void editar(String Identificacion, String nombre)throws Exception{
@@ -104,10 +133,10 @@ public class NinosCrud{
     
 
 
-    public void ConsultarBajas(String NumMatricula)throws Exception {
+    public void ConsultarBajas(String Identificacion)throws Exception {
         boolean encontrar= false;
         for(Ninos niño:Retirados){
-            if(niño.getNumeroMatricula().equals(NumMatricula)){
+            if(niño.getIdentificacion().equals(Identificacion)){
                 System.out.println(niño );
                 encontrar=true;
                 break;
@@ -144,16 +173,16 @@ public class NinosCrud{
     
 
 
-    public void RegistroAlergias(String NumeroMatricula) throws Exception{
+    public void RegistroAlergias(String identificacion) throws Exception{
         
         Scanner sc= new Scanner(System.in);
          for(Ninos niño: ninos.values()){
-            if(niño.getNumeroMatricula().equals(NumeroMatricula)){
+            if(niño.getIdentificacion().equals(identificacion)){
                 System.out.println("Digite las alegias que presenta el niño");
                 String alergias= sc.nextLine();
                 ArrayList<String> Alergias= new ArrayList<String>();
                 Alergias.add(alergias);
-                niño.setAlergias(Alergias);
+                
                 System.out.println("Alergias agregadas con exito");
                 break;                
             }else{

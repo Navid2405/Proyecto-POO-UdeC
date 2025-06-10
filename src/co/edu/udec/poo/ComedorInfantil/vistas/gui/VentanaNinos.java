@@ -220,17 +220,11 @@ public class VentanaNinos extends javax.swing.JFrame {
     private void buttonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegisterActionPerformed
         // TODO add your handling code here:
         String name= campName.getText();
-        String tuition= campTuition.getText();
         String identification = campIdentification.getText();
         Date birthday= campDateBirthday.getDate();
   
-        Ninos nino= new Ninos(name, tuition, birthday, identification);
-        
-        if(NinosCrud.ninos == null){
-            NinosCrud.ninos= new HashMap<>();
-         }
-     
-        try {
+        Ninos nino= new Ninos(name,birthday, identification);
+             try {
             ninosCrud.Agregar(nino);
             int cant= NinosCrud.ninos.size();
             JOptionPane.showMessageDialog(this, "¡Niño agregado exitosamente! y tiene"+ cant +"de registros", "Éxito", JOptionPane.INFORMATION_MESSAGE); // Mensaje de éxito

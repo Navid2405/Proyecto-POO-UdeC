@@ -21,6 +21,7 @@ public class Asesoria {
     //METODOS
     public void ConsultarAseoresEmpresa(String NombreEmpresa){
     }
+    
     public void TiempoTrabajado( String Area){
         
     }

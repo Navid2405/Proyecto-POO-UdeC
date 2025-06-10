@@ -20,6 +20,11 @@ public class BuscaNinoCrud {
     private Map<BuscaNino, List<Ninos>> autorizados;
     private Map<String, BuscaNino> buscadores;
     private NinosCrud ninosCrud;
+
+    public BuscaNinoCrud() {
+    }
+    
+    
     
     public BuscaNinoCrud(NinosCrud ninosCrud){
         this.ninosCrud= ninosCrud;

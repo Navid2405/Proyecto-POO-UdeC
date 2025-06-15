@@ -1,0 +1,23 @@
+@startuml
+
+
+actor "Niños" as u
+rectangle "Sistema de Gestión de Niños" {
+  usecase "Registrarse" as UC1
+  usecase "consultar datos(Buscar)" as UC3
+  usecase "Modificar datos" as UC4
+  usecase "Retirarse" as UC5
+  
+  
+
+
+    u --> UC1
+    u --> UC3
+    u --> UC4
+    u --> UC5
+   
+
+
+}
+
+@enduml

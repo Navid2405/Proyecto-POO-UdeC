@@ -1,0 +1,21 @@
+@startuml
+
+actor "menu" as m 
+
+rectangle  "Gestion de menus"{
+
+    usecase "agregarPlato" as UC1
+    usecase "registrarMenu" as UC2
+    usecase "Listar(mostrar)" as UC3
+
+
+
+
+
+
+    m --> UC1
+    m --> UC2
+    m --> UC3
+
+}
+@enduml

@@ -4,22 +4,22 @@
  */
 package co.edu.udec.poo.ComedorInfantil;
 import co.edu.udec.poo.ComedorInfantil.Infraestructura.Configuracion.Bd.ConexionBd;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.BuscaNinoCrud;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.ComerCrud;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.MenuCrud;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.NinosCrud;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.PagadorCrud;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.PagosCrud;
-import co.edu.udec.poo.ComedorInfantil.modelocrud.PlatosCrud;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.Ninos;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.BuscaNinoCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.ComerCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.MenuCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.NinosCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.PagadorCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.PagosCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.PlatosCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.entidades.Ninos;
 import java.util.Date;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.BuscaNino;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.Comer;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.Menu;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.Pagador;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.Pagos;
-import co.edu.udec.poo.ComedorInfantil.modeloentidades.Platos;
-import co.edu.udec.poo.ComedorInfantil.pruebas.crud.NinosCrudTest;
+    import co.edu.udec.poo.ComedorInfantil.modelo.entidades.BuscaNino;
+import co.edu.udec.poo.ComedorInfantil.modelo.entidades.Comer;
+import co.edu.udec.poo.ComedorInfantil.modelo.entidades.Menu;
+import co.edu.udec.poo.ComedorInfantil.modelo.entidades.Pagador;
+import co.edu.udec.poo.ComedorInfantil.modelo.entidades.Pagos;
+import co.edu.udec.poo.ComedorInfantil.modelo.entidades.Platos;
+
 import co.edu.udec.poo.ComedorInfantil.vistas.gui.VentanaPrincipal;
 
 /**
@@ -30,12 +30,12 @@ import co.edu.udec.poo.ComedorInfantil.vistas.gui.VentanaPrincipal;
 public class Principal {
   public static void main (String [] args) throws Exception{
      
-     // VentanaPrincipal ventana= new VentanaPrincipal();
+      VentanaPrincipal ventana= new VentanaPrincipal();
       //ventana.setExtendedState(ventana.MAXIMIZED_BOTH);
-      //ventana.setLocationRelativeTo(null);
-      //ventana.setVisible(true);
+      ventana.setLocationRelativeTo(null);
+      ventana.setVisible(true);
      
-      NinosCrudTest NinosCrudTest = new  NinosCrudTest();
-      NinosCrudTest.Crear_y_GuardarNinoSinError();
+     
+    
   }
 }

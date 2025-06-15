@@ -4,6 +4,53 @@
  */
 package co.edu.udec.poo.ComedorInfantil.vistas.gui;
 
+import co.edu.udec.poo.ComedorInfantil.Controladores.BuscaNino.ListarControladorBuscadores;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Comedor.ListarControladorComedor;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Menus.ListarControlador;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Ninos.ConsultarBajasControlador;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Ninos.MostrarTodosControlador;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Pagadores.ListarControladorPagadores;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Pagos.ListarControladorPagos;
+import co.edu.udec.poo.ComedorInfantil.Controladores.Platos.ListarControladorPlatos;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.BuscaNino.ListarCasoDeUsoBuscadores;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Comedor.ListarCasoDeUsoComedor;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Menus.ListarCasoDeUso;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Ninos.ConsultarBajasCasoDeUso;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Ninos.MostrarTodosCasoDeUso;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Pagadores.ListarCasoDeUsoPagadores;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Pagos.ListarCasoDeUsoPagos;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.MenuCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.NinosCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.PlatosCrud;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Menus.VentanaAggPlatoM;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Menus.VentanaMostrarTodosM;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Menus.VentanaRegistrarM;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Ninos.VentanaBuscarAcciones;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Ninos.VentanaConsultarBajas;
+import co.edu.udec.poo.ComedorInfantil.modelo.CasosDeUso.Platos.ListarCasoDeUsoPlatos;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.BuscaNinoCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.ComerCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.PagadorCrud;
+import co.edu.udec.poo.ComedorInfantil.modelo.crud.PagosCrud;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.BuscaNino.VentanaAsignarBuscadores;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.BuscaNino.VentanaListarBuscadores;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.BuscaNino.VentanaRegistrarBuscadores;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Comedor.VentanaContarComedor;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Comedor.VentanaListarComedor;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Comedor.VentanaRegistrarComedor;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Ninos.VentanaMostrarTodos;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Ninos.VentanaRegistrar;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagadores.VentanaAsignarPagadore;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagadores.VentanaCambiarCuenta;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagadores.VentanaListarPagadores;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagadores.VentanaRegistrarPagadores;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagos.VentanaGenerarPago;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagos.VentanaListarPagos;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Pagos.VentanaRegistrarPagos;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Platos.VentanaAggIngreP;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Platos.VentanaListarP;
+import co.edu.udec.poo.ComedorInfantil.vistas.gui.Platos.VentanaRegistrarP;
+
 /**
  *
  * @author Navid Lobato
@@ -29,18 +76,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         barraMenu = new javax.swing.JMenuBar();
         menuNinos = new javax.swing.JMenu();
         itemRegistrarNinos = new javax.swing.JMenuItem();
-        itemEliminarNinos = new javax.swing.JMenuItem();
+        itemBuscarAcciones = new javax.swing.JMenuItem();
         itemEditarNinos = new javax.swing.JMenuItem();
         itemConsultarNinos = new javax.swing.JMenuItem();
         itemMostrarNinos = new javax.swing.JMenuItem();
         menuMenus = new javax.swing.JMenu();
         itemRegistrarMenus = new javax.swing.JMenuItem();
-        itemAgregarMenus = new javax.swing.JMenuItem();
         itemAgregarPlatoMenus = new javax.swing.JMenuItem();
         itemMostrarMenus = new javax.swing.JMenuItem();
         menuPlatos = new javax.swing.JMenu();
         itemRegistrarPlatos = new javax.swing.JMenuItem();
-        itemAgregarPlatos = new javax.swing.JMenuItem();
         itemAgregarIngredientePlatos = new javax.swing.JMenuItem();
         itemMostrarPlatos = new javax.swing.JMenuItem();
         menuPagadores = new javax.swing.JMenu();
@@ -74,6 +119,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         itemRegistrarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Oxygen-Icons.org-Oxygen-Actions-list-add.24.png"))); // NOI18N
         itemRegistrarNinos.setText("Registrar...");
         itemRegistrarNinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,14 +128,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuNinos.add(itemRegistrarNinos);
 
-        itemEliminarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemEliminarNinos.setText("Eliminar...");
-        itemEliminarNinos.addActionListener(new java.awt.event.ActionListener() {
+        itemBuscarAcciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemBuscarAcciones.setText("Buscar y realizar acciones");
+        itemBuscarAcciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemEliminarNinosActionPerformed(evt);
+                itemBuscarAccionesActionPerformed(evt);
             }
         });
-        menuNinos.add(itemEliminarNinos);
+        menuNinos.add(itemBuscarAcciones);
 
         itemEditarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         itemEditarNinos.setText("Editar datos...");
@@ -110,6 +156,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuNinos.add(itemConsultarNinos);
 
         itemMostrarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarNinos.setText("Mostrar todos...");
         itemMostrarNinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,19 +169,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuMenus.setText("Menus");
         menuMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        itemRegistrarMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemRegistrarMenus.setText("Registrar ...");
-        menuMenus.add(itemRegistrarMenus);
-
-        itemAgregarMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemAgregarMenus.setText("Agregar...");
-        itemAgregarMenus.addActionListener(new java.awt.event.ActionListener() {
+        menuMenus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemAgregarMenusActionPerformed(evt);
+                menuMenusActionPerformed(evt);
             }
         });
-        menuMenus.add(itemAgregarMenus);
+
+        itemRegistrarMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarMenus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
+        itemRegistrarMenus.setText("Registrar ...");
+        itemRegistrarMenus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarMenusActionPerformed(evt);
+            }
+        });
+        menuMenus.add(itemRegistrarMenus);
 
         itemAgregarPlatoMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         itemAgregarPlatoMenus.setText("Agregar plato...");
@@ -146,6 +195,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuMenus.add(itemAgregarPlatoMenus);
 
         itemMostrarMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarMenus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarMenus.setText("Mostrar menus...");
         itemMostrarMenus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,17 +210,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemRegistrarPlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarPlatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
         itemRegistrarPlatos.setText("Registrar ...");
-        menuPlatos.add(itemRegistrarPlatos);
-
-        itemAgregarPlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemAgregarPlatos.setText("Agregar...");
-        itemAgregarPlatos.addActionListener(new java.awt.event.ActionListener() {
+        itemRegistrarPlatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemAgregarPlatosActionPerformed(evt);
+                itemRegistrarPlatosActionPerformed(evt);
             }
         });
-        menuPlatos.add(itemAgregarPlatos);
+        menuPlatos.add(itemRegistrarPlatos);
 
         itemAgregarIngredientePlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         itemAgregarIngredientePlatos.setText("Agregar ingrediente");
@@ -182,6 +229,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPlatos.add(itemAgregarIngredientePlatos);
 
         itemMostrarPlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarPlatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarPlatos.setText("Mostrar platos...");
         itemMostrarPlatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +244,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemRegistrarPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarPagadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
         itemRegistrarPagadores.setText("Registrar ...");
+        itemRegistrarPagadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarPagadoresActionPerformed(evt);
+            }
+        });
         menuPagadores.add(itemRegistrarPagadores);
 
         itemAsignarPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -227,6 +281,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagadores.add(itemBuscarPagadores);
 
         itemMostrarPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarPagadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarPagadores.setText("Mostrar todos ...");
         itemMostrarPagadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +296,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemRegistrarPagos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
         itemRegistrarPagos.setText("Registrar ...");
+        itemRegistrarPagos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarPagosActionPerformed(evt);
+            }
+        });
         menuPagos.add(itemRegistrarPagos);
 
         itemGenerarPagos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -254,6 +315,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagos.add(itemGenerarPagos);
 
         itemMostrarPagos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarPagos.setText("Mostar todos...");
         itemMostrarPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +330,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemRegistrarBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
         itemRegistrarBuscador.setText("Registrar ...");
+        itemRegistrarBuscador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarBuscadorActionPerformed(evt);
+            }
+        });
         menuBuscador.add(itemRegistrarBuscador);
 
         itemAsignarBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -281,6 +349,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBuscador.add(itemAsignarBuscador);
 
         itemMostrarBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarBuscador.setText("Mostrar todos...");
         itemMostrarBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,10 +364,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuComedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemRegistrarComedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemRegistrarComedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
         itemRegistrarComedor.setText("Registrar ...");
+        itemRegistrarComedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemRegistrarComedorActionPerformed(evt);
+            }
+        });
         menuComedor.add(itemRegistrarComedor);
 
         itemMostrarComedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemMostrarComedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Mostrar24px.png"))); // NOI18N
         itemMostrarComedor.setText("Mostrar todos ....");
         itemMostrarComedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,62 +400,93 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 587, Short.MAX_VALUE)
+            .addGap(0, 745, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+            .addGap(0, 557, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemEliminarNinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEliminarNinosActionPerformed
+    private void itemBuscarAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBuscarAccionesActionPerformed
         // TODO add your handling code here:
-        
-        VentanaEliminarNinos ventana= new VentanaEliminarNinos();
+        VentanaBuscarAcciones ventana = new VentanaBuscarAcciones();
         ventana.setLocationRelativeTo(this);
         ventana.setVisible(true);
-    }//GEN-LAST:event_itemEliminarNinosActionPerformed
+
+
+    }//GEN-LAST:event_itemBuscarAccionesActionPerformed
 
     private void itemEditarNinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemEditarNinosActionPerformed
         // TODO add your handling code here:
+        VentanaBuscarAcciones ventana = new VentanaBuscarAcciones();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemEditarNinosActionPerformed
 
     private void itemConsultarNinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemConsultarNinosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_itemConsultarNinosActionPerformed
+        NinosCrud ninocrud = new NinosCrud(); 
+        ConsultarBajasCasoDeUso casoDeUso = new ConsultarBajasCasoDeUso(ninocrud);
+        ConsultarBajasControlador controlador = new ConsultarBajasControlador(casoDeUso);
+        
+        VentanaConsultarBajas ventana = new VentanaConsultarBajas(controlador);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
 
-    private void itemAgregarMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarMenusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemAgregarMenusActionPerformed
+
+    }//GEN-LAST:event_itemConsultarNinosActionPerformed
 
     private void itemAgregarPlatoMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarPlatoMenusActionPerformed
         // TODO add your handling code here:
+        VentanaAggPlatoM ventana = new VentanaAggPlatoM();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemAgregarPlatoMenusActionPerformed
 
     private void itemMostrarMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarMenusActionPerformed
         // TODO add your handling code here:
+         MenuCrud mcrud = new MenuCrud(); 
+        ListarCasoDeUso casoDeUso = new ListarCasoDeUso(mcrud);
+        ListarControlador controlador = new ListarControlador(casoDeUso);
+        VentanaMostrarTodosM ventana = new VentanaMostrarTodosM(controlador);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemMostrarMenusActionPerformed
-
-    private void itemAgregarPlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarPlatosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemAgregarPlatosActionPerformed
 
     private void itemAgregarIngredientePlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarIngredientePlatosActionPerformed
         // TODO add your handling code here:
+        
+        VentanaAggIngreP v = new VentanaAggIngreP ();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
     }//GEN-LAST:event_itemAgregarIngredientePlatosActionPerformed
 
     private void itemMostrarPlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarPlatosActionPerformed
         // TODO add your handling code here:
+        PlatosCrud pcrud = new PlatosCrud(); 
+        ListarCasoDeUsoPlatos casoDeUso = new ListarCasoDeUsoPlatos(pcrud);
+        ListarControladorPlatos controlador = new ListarControladorPlatos(casoDeUso);
+        
+        VentanaListarP ventana= new VentanaListarP(controlador);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemMostrarPlatosActionPerformed
 
     private void itemAsignarPagadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAsignarPagadoresActionPerformed
         // TODO add your handling code here:
+        VentanaAsignarPagadore ventana = new VentanaAsignarPagadore();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemAsignarPagadoresActionPerformed
 
     private void itemCambiarnumCuentaPagadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCambiarnumCuentaPagadoresActionPerformed
         // TODO add your handling code here:
+        VentanaCambiarCuenta v = new VentanaCambiarCuenta();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
     }//GEN-LAST:event_itemCambiarnumCuentaPagadoresActionPerformed
 
     private void itemBuscarPagadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemBuscarPagadoresActionPerformed
@@ -388,52 +495,138 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void itemGenerarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemGenerarPagosActionPerformed
         // TODO add your handling code here:
+        VentanaGenerarPago v = new VentanaGenerarPago();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
     }//GEN-LAST:event_itemGenerarPagosActionPerformed
 
     private void itemMostrarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarPagosActionPerformed
         // TODO add your handling code here:
+         PagosCrud pcrud = new PagosCrud(); 
+        ListarCasoDeUsoPagos casoDeUso = new ListarCasoDeUsoPagos(pcrud);
+        ListarControladorPagos controlador = new ListarControladorPagos(casoDeUso);
+        VentanaListarPagos v = new VentanaListarPagos(controlador);
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
     }//GEN-LAST:event_itemMostrarPagosActionPerformed
 
     private void itemAsignarBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAsignarBuscadorActionPerformed
         // TODO add your handling code here:
+        VentanaAsignarBuscadores v = new VentanaAsignarBuscadores();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
     }//GEN-LAST:event_itemAsignarBuscadorActionPerformed
 
     private void itemMostrarBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarBuscadorActionPerformed
         // TODO add your handling code here:
+        BuscaNinoCrud bncrud = new BuscaNinoCrud(); 
+        ListarCasoDeUsoBuscadores casoDeUso = new ListarCasoDeUsoBuscadores(bncrud);
+        ListarControladorBuscadores controlador = new ListarControladorBuscadores(casoDeUso);
+        VentanaListarBuscadores v= new VentanaListarBuscadores(controlador);
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
     }//GEN-LAST:event_itemMostrarBuscadorActionPerformed
 
     private void itemMostrarComedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarComedorActionPerformed
         // TODO add your handling code here:
+         ComerCrud cCrud = new ComerCrud(); 
+        ListarCasoDeUsoComedor casoDeUso = new ListarCasoDeUsoComedor(cCrud);
+        ListarControladorComedor controlador = new ListarControladorComedor(casoDeUso);
+        VentanaListarComedor ventana = new VentanaListarComedor(controlador);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemMostrarComedorActionPerformed
 
     private void itemContarComedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemContarComedorActionPerformed
         // TODO add your handling code here:
+         VentanaContarComedor v = new VentanaContarComedor();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
+        
     }//GEN-LAST:event_itemContarComedorActionPerformed
 
     private void itemMostrarPagadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarPagadoresActionPerformed
         // TODO add your handling code here:
+        PagadorCrud mcrud = new PagadorCrud(); 
+        ListarCasoDeUsoPagadores casoDeUso = new ListarCasoDeUsoPagadores(mcrud);
+        ListarControladorPagadores controlador = new ListarControladorPagadores(casoDeUso);
+        VentanaListarPagadores ventana = new VentanaListarPagadores(controlador);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
     }//GEN-LAST:event_itemMostrarPagadoresActionPerformed
 
     private void itemRegistrarNinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarNinosActionPerformed
-                    // TODO add your handling code here:
-                    VentanaNinos ventana= new VentanaNinos();
-                    ventana.setLocationRelativeTo(this);
-                    ventana.setVisible(true);
-                    
+        // TODO add your handling code here:
+        VentanaRegistrar ventana = new VentanaRegistrar();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+
     }//GEN-LAST:event_itemRegistrarNinosActionPerformed
 
     private void itemMostrarNinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMostrarNinosActionPerformed
         // TODO add your handling code here:
-        VentanaMostrar ventana= new VentanaMostrar();
+
+        NinosCrud ninocrud = new NinosCrud(); 
+        MostrarTodosCasoDeUso casoDeUso = new MostrarTodosCasoDeUso(ninocrud);
+        MostrarTodosControlador controlador = new MostrarTodosControlador(casoDeUso);
+        VentanaMostrarTodos ventana = new VentanaMostrarTodos(controlador);
         ventana.setLocationRelativeTo(this);
         ventana.setVisible(true);
     }//GEN-LAST:event_itemMostrarNinosActionPerformed
 
     private void menuNinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNinosActionPerformed
         // TODO add your handling code here:
-        
-        
+
+
     }//GEN-LAST:event_menuNinosActionPerformed
+
+    private void menuMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMenusActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_menuMenusActionPerformed
+
+    private void itemRegistrarMenusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarMenusActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarM ventana = new VentanaRegistrarM();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_itemRegistrarMenusActionPerformed
+
+    private void itemRegistrarPlatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarPlatosActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarP ventana = new VentanaRegistrarP();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_itemRegistrarPlatosActionPerformed
+
+    private void itemRegistrarPagadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarPagadoresActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarPagadores ventana = new VentanaRegistrarPagadores();
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_itemRegistrarPagadoresActionPerformed
+
+    private void itemRegistrarPagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarPagosActionPerformed
+        // TODO add your handling code here:
+         VentanaRegistrarPagos v = new VentanaRegistrarPagos();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
+    }//GEN-LAST:event_itemRegistrarPagosActionPerformed
+
+    private void itemRegistrarBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarBuscadorActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarBuscadores v = new VentanaRegistrarBuscadores();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
+    }//GEN-LAST:event_itemRegistrarBuscadorActionPerformed
+
+    private void itemRegistrarComedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemRegistrarComedorActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarComedor v = new VentanaRegistrarComedor();
+        v.setLocationRelativeTo(this);
+        v.setVisible(true);
+        
+    }//GEN-LAST:event_itemRegistrarComedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,17 +666,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem itemAgregarIngredientePlatos;
-    private javax.swing.JMenuItem itemAgregarMenus;
     private javax.swing.JMenuItem itemAgregarPlatoMenus;
-    private javax.swing.JMenuItem itemAgregarPlatos;
     private javax.swing.JMenuItem itemAsignarBuscador;
     private javax.swing.JMenuItem itemAsignarPagadores;
+    private javax.swing.JMenuItem itemBuscarAcciones;
     private javax.swing.JMenuItem itemBuscarPagadores;
     private javax.swing.JMenuItem itemCambiarnumCuentaPagadores;
     private javax.swing.JMenuItem itemConsultarNinos;
     private javax.swing.JMenuItem itemContarComedor;
     private javax.swing.JMenuItem itemEditarNinos;
-    private javax.swing.JMenuItem itemEliminarNinos;
     private javax.swing.JMenuItem itemGenerarPagos;
     private javax.swing.JMenuItem itemMostrarBuscador;
     private javax.swing.JMenuItem itemMostrarComedor;

@@ -110,6 +110,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VentanaPrincupal");
 
+        menuNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/ninosIcon24.png"))); // NOI18N
         menuNinos.setText("Niños");
         menuNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         menuNinos.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +120,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         itemRegistrarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        itemRegistrarNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Oxygen-Icons.org-Oxygen-Actions-list-add.24.png"))); // NOI18N
+        itemRegistrarNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Registrar24PX.png"))); // NOI18N
         itemRegistrarNinos.setText("Registrar...");
         itemRegistrarNinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +130,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuNinos.add(itemRegistrarNinos);
 
         itemBuscarAcciones.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemBuscarAcciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Buscar24px.png"))); // NOI18N
         itemBuscarAcciones.setText("Buscar y realizar acciones");
         itemBuscarAcciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +140,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuNinos.add(itemBuscarAcciones);
 
         itemEditarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemEditarNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Editar24px.png"))); // NOI18N
         itemEditarNinos.setText("Editar datos...");
         itemEditarNinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +150,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuNinos.add(itemEditarNinos);
 
         itemConsultarNinos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemConsultarNinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Consultar24px.png"))); // NOI18N
         itemConsultarNinos.setText("Consultar bajas...");
         itemConsultarNinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +171,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuNinos);
 
+        menuMenus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/menus2.png"))); // NOI18N
         menuMenus.setText("Menus");
         menuMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         menuMenus.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +191,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuMenus.add(itemRegistrarMenus);
 
         itemAgregarPlatoMenus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemAgregarPlatoMenus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/AggPlato.png"))); // NOI18N
         itemAgregarPlatoMenus.setText("Agregar plato...");
         itemAgregarPlatoMenus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +212,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuMenus);
 
+        menuPlatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/AggPlato.png"))); // NOI18N
         menuPlatos.setText("Platos");
         menuPlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -220,6 +227,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPlatos.add(itemRegistrarPlatos);
 
         itemAgregarIngredientePlatos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemAgregarIngredientePlatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/ingre.png"))); // NOI18N
         itemAgregarIngredientePlatos.setText("Agregar ingrediente");
         itemAgregarIngredientePlatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +248,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuPlatos);
 
+        menuPagadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/pagadores24px.png"))); // NOI18N
         menuPagadores.setText("Pagadores");
         menuPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -254,6 +263,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagadores.add(itemRegistrarPagadores);
 
         itemAsignarPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemAsignarPagadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Asignar24px.png"))); // NOI18N
         itemAsignarPagadores.setText("Asignar pagador...");
         itemAsignarPagadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,6 +273,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagadores.add(itemAsignarPagadores);
 
         itemCambiarnumCuentaPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemCambiarnumCuentaPagadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/cambiar24px.png"))); // NOI18N
         itemCambiarnumCuentaPagadores.setText("Cambiar num cuenta...");
         itemCambiarnumCuentaPagadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,6 +283,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagadores.add(itemCambiarnumCuentaPagadores);
 
         itemBuscarPagadores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemBuscarPagadores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Buscar24px.png"))); // NOI18N
         itemBuscarPagadores.setText("Buscar..");
         itemBuscarPagadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,6 +304,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuPagadores);
 
+        menuPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/pagos24px.png"))); // NOI18N
         menuPagos.setText("Pagos");
         menuPagos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -306,6 +319,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuPagos.add(itemRegistrarPagos);
 
         itemGenerarPagos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemGenerarPagos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Generar24px.png"))); // NOI18N
         itemGenerarPagos.setText("Generar pago...");
         itemGenerarPagos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,6 +340,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuPagos);
 
+        menuBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/pagadores24px.png"))); // NOI18N
         menuBuscador.setText("Buscador");
         menuBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -340,6 +355,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBuscador.add(itemRegistrarBuscador);
 
         itemAsignarBuscador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemAsignarBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Asignar24px.png"))); // NOI18N
         itemAsignarBuscador.setText("Asignar buscador...");
         itemAsignarBuscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,6 +376,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         barraMenu.add(menuBuscador);
 
+        menuComedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/Comedor.png"))); // NOI18N
         menuComedor.setText("Comedor");
         menuComedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -384,6 +401,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuComedor.add(itemMostrarComedor);
 
         itemContarComedor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        itemContarComedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/udec/poo/ComedorInfantil/vistas/iconos/contar24px.png"))); // NOI18N
         itemContarComedor.setText("Contar comidas ...");
         itemContarComedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,11 +418,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGap(0, 791, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 557, Short.MAX_VALUE)
+            .addGap(0, 553, Short.MAX_VALUE)
         );
 
         pack();

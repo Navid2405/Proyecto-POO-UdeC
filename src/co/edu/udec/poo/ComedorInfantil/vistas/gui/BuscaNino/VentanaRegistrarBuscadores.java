@@ -45,6 +45,7 @@ public class VentanaRegistrarBuscadores extends javax.swing.JDialog {
         campoI = new javax.swing.JTextField();
         campoRela = new javax.swing.JTextField();
         botonRegistrar = new javax.swing.JButton();
+        botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class VentanaRegistrarBuscadores extends javax.swing.JDialog {
             }
         });
 
+        botonCancelar.setText("CANCELAR");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,6 +133,8 @@ public class VentanaRegistrarBuscadores extends javax.swing.JDialog {
                 .addContainerGap(117, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonCancelar)
+                .addGap(18, 18, 18)
                 .addComponent(botonRegistrar)
                 .addGap(127, 127, 127))
         );
@@ -152,7 +162,9 @@ public class VentanaRegistrarBuscadores extends javax.swing.JDialog {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoRela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(90, 90, 90)
-                .addComponent(botonRegistrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonRegistrar)
+                    .addComponent(botonCancelar))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
@@ -206,6 +218,11 @@ public class VentanaRegistrarBuscadores extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botonRegistrarActionPerformed
 
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -250,6 +267,7 @@ public class VentanaRegistrarBuscadores extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCancelar;
     private javax.swing.JButton botonRegistrar;
     private javax.swing.JTextField campoD;
     private javax.swing.JTextField campoI;

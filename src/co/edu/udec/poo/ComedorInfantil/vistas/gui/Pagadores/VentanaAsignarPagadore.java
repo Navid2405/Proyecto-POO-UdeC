@@ -38,6 +38,7 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
         botonAsignar = new javax.swing.JButton();
         campoIN = new javax.swing.JTextField();
         campDni = new javax.swing.JTextField();
+        botonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -64,6 +65,13 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
             }
         });
 
+        botonCancelar.setText("Cancelar");
+        botonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,6 +89,8 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
                             .addComponent(campoIN, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(77, 77, 77))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(botonCancelar)
+                        .addGap(18, 18, 18)
                         .addComponent(botonAsignar)
                         .addGap(65, 65, 65))))
         );
@@ -96,7 +106,9 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
                     .addComponent(campDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(119, 119, 119)
-                .addComponent(botonAsignar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonAsignar)
+                    .addComponent(botonCancelar))
                 .addContainerGap(142, Short.MAX_VALUE))
         );
 
@@ -121,6 +133,7 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
             String msj = e.getMessage();
             JOptionPane.showMessageDialog(this, msj, "Error al asignar el nino", JOptionPane.ERROR_MESSAGE);
         } finally {
+            this.dispose();
         }
     }//GEN-LAST:event_botonAsignarActionPerformed
 
@@ -131,6 +144,11 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
     private void campDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campDniActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campDniActionPerformed
+
+    private void botonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_botonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +194,7 @@ public class VentanaAsignarPagadore extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonAsignar;
+    private javax.swing.JButton botonCancelar;
     private javax.swing.JTextField campDni;
     private javax.swing.JTextField campoIN;
     private javax.swing.JLabel jLabel1;

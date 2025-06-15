@@ -1,0 +1,21 @@
+@startuml
+
+
+actor "Pagos" as p
+rectangle "Administracion pagos"{
+usecase "Registrarpago" as uc1
+usecase "GenerarPago" as uc2
+usecase "Listar" as uc3
+
+
+p --> uc1
+p --> uc2
+p --> uc3
+
+
+
+
+
+
+}
+@enduml

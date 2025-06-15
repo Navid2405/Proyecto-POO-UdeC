@@ -1,0 +1,148 @@
+@startuml
+
+
+Class Ninos{
+    numeroMatricula:String
+    Nombre:String
+    Nacimiento:Date
+    FechaIngreso:Date
+    FechaBaja:Date
+    Estado:String
+    Alergias:List<String>
+    
+    ClassNinos()
+    Retirar(numMatricula:String)
+    RegistroAlergias(Alergia:String)
+    ConsultarBajas():LIst<Ninos>
+    Listar():List<Ninos>
+}
+
+Class BuscaNino{
+    Dni:String
+    Nombre:String
+    Direccion:String
+    Telefono:String
+    Relacion:String
+
+    ClassBuscaNino()
+    Listar(niño:Ninos): List<Busca>
+    Recogen()
+    }
+
+Class Pagador{
+    Dni:String
+    Nombre:String
+    Direccion:String
+    Telefono:String
+    NumeroCuenta:String
+
+    classPagador()
+    Listar(): List<Pagador>
+    CambioCuenta(FechaCambio:Date): List<Pagador>
+}
+
+class Pago{
+    Id:String
+    Fecha:Date
+    CostoFijo:Double
+    CostoComida:Double
+    CostoTotal: Double
+    NumMatriNino: String Fk
+    DniPagador: String Fk
+
+    classPago()
+    
+    DiasComida(tiempo:Date): Int
+    CostoMensual(tiempo:Date): Double
+    PagosPendientes(): List<Pago>
+    PagosUltimoMes(): List<Pago>
+
+}
+Class Menu{
+    Numeromenu:String
+    Nombre:String
+
+    classMenu()
+    AggPlato(plato:Platos)
+    Mostar()
+
+}
+
+Class Platos{
+    Nombre:String
+    ListaIngredientes:List<String>
+
+    classPlatos: ()
+
+}
+
+class Comer{
+    Id:String
+    Fecha:Date
+    numMatriculaNiño: String Fk
+    NumeroMenu:String Fk
+    CantComidas: Int
+    
+
+    Comer()
+
+}
+
+class Asesores{
+    Codigo:String
+    Nombre:String
+    Direccion:String
+    TitualcionProfessional:String
+    AreadeAsesoria: List<String>
+
+    classAsesor()
+    Listar():List<String>
+    MasTiempo():List<Asesores>
+    }
+
+class Asesoria{
+    Id:String
+    COdigoAsesor: String fk
+    NombreEmpresa: String
+    Area:String
+    FechaInicio:Date
+
+    ConsultarAseoresEmpresa(NombreEmpresa:String): List<Asesores>
+    TiempoTrabajado(Area:String)
+}
+
+class AdminComidas{
+
+    Historial(niño:Ninos, FechaInicio:Date, FechaFin:Date) :List<String>
+    ListarUltimaSemana():List<Ninos>
+    BuscarMasConsumo():List<Ninos>
+    ListarMasAsistencia():List<Ninos>
+}
+
+Class AdminAlergia{
+
+    BuscarNinosConAlergias(): Map<Ninos, List<String>>
+    Mostrar(): Map<Ninos, List<String>>
+}
+
+Class AdminComedor{
+    CostosTotales(Mes:Date):Double
+}
+
+
+Ninos "1" --"1..*" BuscaNino: Puede ser recogido por
+Ninos "1"-- "1" Pagador: Paga
+Ninos "1" -- "0..*" Comer: Come
+Menu "1" -- "0..*" Comer: Es consumido
+Menu "1" -- "0..*" Platos: Tiene
+Ninos "*" -- "0..*" Platos: Alergicos
+Asesores "1" --"0..*" Asesoria: Trabaja}
+Ninos "1" -- "0..*" Pago: Tiene
+Pagador "1" -- "0..*" Pago: Realiza
+AdminComidas ..> Menu
+AdminComidas ..> Ninos
+AdminComidas ..> Comer
+AdminComedor ..> Pago
+AdminAlergia ..> Platos
+AdminAlergia ..> Ninos
+@enduml
